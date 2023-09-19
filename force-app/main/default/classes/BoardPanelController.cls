@@ -11,4 +11,5 @@ public with sharing class BoardPanelController {
       throw new AuraHandledException(e.getMessage());
     }
   }
+  
 }
