@@ -22,13 +22,15 @@
     if (result === "win") {
       toastEvent.setParams({
         title: "Success!",
-        message: "Winner winner chicken dinner"
+        message: "Winner winner chicken dinner",
+        type: "success"
       });
       component.set("v.reshuffleDisabled", true);
     } else {
       toastEvent.setParams({
         title: "Fail!",
-        message: "You lose, try a new game or reshuffle"
+        message: "You lose, try a new game or reshuffle",
+        type: "error"
       });
       component.set("v.reshuffleDisabled", false);
     }
