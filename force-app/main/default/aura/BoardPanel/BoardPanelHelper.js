@@ -1,5 +1,6 @@
 ({
   addResultRecord: function (component, result) {
+    console.log("apex function will be called");
     // getting apex class method, this is possible because the class is the aura component's controller in controller attribute
     const action = component.get("c.addResult");
     const mode = component.get("v.selectedMode");

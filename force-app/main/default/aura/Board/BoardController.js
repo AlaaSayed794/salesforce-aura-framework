@@ -23,10 +23,12 @@
     if (value === component.get("v.winWord")) {
       component.set("v.result", "You win");
       helper.disableBoard(component);
+      console.log("win fire");
       helper.fireResultEvent("win");
     } else if (clickCount === 3) {
       component.set("v.result", "You lose");
       helper.disableBoard(component);
+      console.log("lose fire");
       helper.fireResultEvent("lose");
     }
     component.set("v.clickCount", clickCount);

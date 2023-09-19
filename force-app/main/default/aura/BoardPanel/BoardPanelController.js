@@ -14,6 +14,7 @@
     component.set("v.reshuffleDisabled", true);
   },
   onResultHandler: function (component, event, helper) {
+    console.log("on result handler");
     const result = event.getParam("result");
     if (result === "win") {
       component.set("v.reshuffleDisabled", true);
