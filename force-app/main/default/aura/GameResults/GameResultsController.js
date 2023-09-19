@@ -9,7 +9,7 @@
     component.set("v.columns", columns);
     helper.fetchResults(component);
   },
-  onResultHandler: function (component) {
+  onResultHandler: function (component, event, helper) {
     console.log("game result app handler called");
     helper.fetchResults(component);
   }
