@@ -20,5 +20,6 @@
     } else {
       component.set("v.reshuffleDisabled", false);
     }
+    helper.addResultRecord(component, result);
   }
 });

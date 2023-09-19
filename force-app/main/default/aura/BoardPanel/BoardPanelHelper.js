@@ -1,5 +1,15 @@
 ({
-    helperMethod : function() {
-
-    }
-})
+  addResultRecord: function (component, result) {
+    // getting apex class method, this is possible because the class is the aura component's controller in controller attribute
+    const action = component.get("c.addResult");
+    const mode = component.get("v.selectedMode");
+    action.setParams({ result, mode });
+    action.setCallback(this, function (response) {
+      const state = response.getState();
+      if (state !== "SUCCESS") {
+        console.error("error saving record");
+      }
+    });
+    $A.enqueueAction(action);
+  }
+});
