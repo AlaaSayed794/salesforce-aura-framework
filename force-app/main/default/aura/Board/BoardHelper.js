@@ -137,5 +137,10 @@
     this.enableBoard(component);
     component.set("v.result", "");
     component.set("v.clickCount", 0);
+  },
+  fireResultEvent: function (result) {
+    const appEvent = $A.get("e.c:ResultAppEvent");
+    appEvent.setParams({ result });
+    appEvent.fire();
   }
 });

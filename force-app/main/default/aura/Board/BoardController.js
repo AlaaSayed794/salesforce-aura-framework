@@ -23,10 +23,19 @@
     if (value === component.get("v.winWord")) {
       component.set("v.result", "You win");
       helper.disableBoard(component);
+      helper.fireResultEvent("win");
     } else if (clickCount === 3) {
       component.set("v.result", "You lose");
       helper.disableBoard(component);
+      helper.fireResultEvent("lose");
     }
     component.set("v.clickCount", clickCount);
+  },
+
+  reshuffleBoard: function (component, event, helper) {
+    const words = component.get("v.words");
+    const randomizedWords = helper.randomizeArray(words);
+    component.set("v.words", randomizedWords);
+    helper.resetBoard(component);
   }
 });

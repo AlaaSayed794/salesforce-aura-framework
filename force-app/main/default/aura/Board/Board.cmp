@@ -12,7 +12,8 @@
     <aura:handler name="onclick" event="c:BlockClickEvent" action="{!c.onBlockClick}" />
     -->
     <aura:method name="startGame" action="{!c.doInit}" />
-    
+    <aura:method name="reshuffleBoard" action="{!c.reshuffleBoard}" />
+
     <div class="board">
         <lightning:layout>
             <lightning:layoutItem padding="around-small">
