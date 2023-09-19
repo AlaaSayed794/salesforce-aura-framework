@@ -4,9 +4,20 @@
     <aura:attribute name="winWord" type="String" access="private" />
     <aura:attribute name="clickCount" type="Integer" default="0" access="private" />
     <aura:attribute name="blockSize" type="Integer" default="4" access="private" />
+    <aura:attribute name="result" type="String" access="private" />
+    <aura:attribute name="boardDisabled" type="Boolean" default="false" />
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" access="private" />
+    <!-- if block was not a child, we could add aura handler instead of passing onclick, 
+        onclick can be anyname by the way
+    <aura:handler name="onclick" event="c:BlockClickEvent" action="{!c.onBlockClick}" />
+    -->
+    <aura:method name="startGame" action="{!c.doInit}" />
+    
     <div class="board">
         <lightning:layout>
+            <lightning:layoutItem padding="around-small">
+                {!v.result}
+            </lightning:layoutItem>
             <lightning:layoutItem padding="around-small">
                 <div class="slds-text-heading_medium">
                     Word : <span class="win-word">{!v.winWord}</span>
@@ -18,11 +29,13 @@
                 </div>
             </lightning:layoutItem>
          </lightning:layout>
-            
+         <aura:if isTrue="{!v.boardDisabled}">
+            <div class="board-disabled"></div>
+         </aura:if>
         <lightning:layout multipleRows="true">
             <aura:iteration items="{!v.words}" var="word">
                 <lightning:layoutItem size="{!v.blockSize}" padding="around-small">
-                    <c:Block label="{!word}"></c:Block>
+                    <c:Block onclick="{!c.onBlockClick}" label="{!word}"></c:Block>
                 </lightning:layoutItem>
             </aura:iteration> 
         </lightning:layout>
