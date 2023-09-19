@@ -8,6 +8,8 @@
       const state = response.getState();
       if (state !== "SUCCESS") {
         console.error("error saving record");
+      } else {
+        console.log("added record successfully");
       }
     });
     $A.enqueueAction(action);
