@@ -34,9 +34,9 @@
             <div class="board-disabled"></div>
          </aura:if>
         <lightning:layout multipleRows="true">
-            <aura:iteration items="{!v.words}" var="word">
+            <aura:iteration items="{!v.words}" var="wordObj">
                 <lightning:layoutItem size="{!v.blockSize}" padding="around-small">
-                    <c:Block onclick="{!c.onBlockClick}" label="{!word}"></c:Block>
+                    <c:Block onclick="{!c.onBlockClick}" label="{!wordObj.word}" open="{!wordObj.open}"></c:Block>
                 </lightning:layoutItem>
             </aura:iteration> 
         </lightning:layout>

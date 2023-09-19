@@ -106,8 +106,10 @@
     ];
     // Randomize the words array
     wordsArray = this.randomizeArray(wordsArray);
+
+    const wordsObj = wordsArray.map((word) => ({ word, open: false }));
     // return requested words
-    return wordsArray.slice(0, count);
+    return wordsObj.slice(0, count);
   },
 
   randomizeArray: function (arr) {
@@ -124,7 +126,7 @@
 
   getWinWord: function (arr) {
     const randomIndex = Math.floor(Math.random() * arr.length);
-    return arr[randomIndex];
+    return arr[randomIndex].word;
   },
 
   disableBoard: function (component) {
