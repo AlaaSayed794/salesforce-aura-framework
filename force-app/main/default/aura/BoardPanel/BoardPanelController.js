@@ -13,14 +13,27 @@
     board.reshuffleBoard();
     component.set("v.reshuffleDisabled", true);
   },
+
   onResultHandler: function (component, event, helper) {
     console.log("on result handler");
+    var toastEvent = $A.get("e.force:showToast");
+
     const result = event.getParam("result");
     if (result === "win") {
+      toastEvent.setParams({
+        title: "Success!",
+        message: "Winner winner chicken dinner"
+      });
       component.set("v.reshuffleDisabled", true);
     } else {
+      toastEvent.setParams({
+        title: "Fail!",
+        message: "You lose, try a new game or reshuffle"
+      });
       component.set("v.reshuffleDisabled", false);
     }
+    toastEvent.fire();
+
     helper.addResultRecord(component, result);
   }
 });
